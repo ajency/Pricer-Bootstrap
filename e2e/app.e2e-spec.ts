@@ -1,10 +1,10 @@
-import { ProjectPage } from './app.po';
+import { PricerBootstrapPage } from './app.po';
 
-describe('project App', () => {
-  let page: ProjectPage;
+describe('pricer-bootstrap App', () => {
+  let page: PricerBootstrapPage;
 
   beforeEach(() => {
-    page = new ProjectPage();
+    page = new PricerBootstrapPage();
   });
 
   it('should display welcome message', () => {
