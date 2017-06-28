@@ -5,6 +5,14 @@ import { AppComponent } from './app.component';
 import { UploadsCsvComponent } from './uploads-csv/uploads-csv.component';
 import { PricesComponent } from './prices/prices.component';
 
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+  { path: 'upload-csv', component: UploadsCsvComponent },
+  { path: 'prices',      component: PricesComponent },
+];
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -12,6 +20,7 @@ import { PricesComponent } from './prices/prices.component';
     PricesComponent
   ],
   imports: [
+    RouterModule.forRoot(appRoutes),
     BrowserModule
   ],
   providers: [],
