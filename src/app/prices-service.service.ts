@@ -5,7 +5,7 @@ export class PricesServiceService {
 
   constructor() { }
 
-  getData() {
+  public getData() {
     return {
       "success": true,
       "result_count": 41,
