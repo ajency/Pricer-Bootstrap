@@ -1,3 +1,190 @@
-<p>
-  prices works!
-</p>
+<div class="container">
+
+	<div class="header-secondary replace-header">
+		<ul class="nav pri-menu justify-content-between">
+			<!-- <li class="visible-xs pri-menu__hb"> < </li> -->
+
+			<li class="pri-menu__wrap marketplace-tabs show-white">
+				<ul class="pri-menu__full">
+					<li class="active"><a class="">All</a></li>
+					<li class=""><a class="marketplaces m-amazon"><span class="m-h"></span></a></li>
+					<li><a class="marketplaces m-flipkart"><span class="m-h"></span></a></li>
+					<li><a class="marketplaces m-snapdeal"><span class="m-h"></span></a></li>
+					<li><a class="marketplaces m-paytm"><span class="m-h"></span></a></li>
+				</ul>
+			</li>
+			<li class="buttons-right hidden-xs">
+				<ul class="pri-menu__full">
+					<li>
+						<div class="bt-dropdown">
+							<a>Export</a>
+						</div>
+					</li>
+					<li><a>Import</a></li>
+					<li padding-left="">1 to 20 of <strong>39</strong></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+
+	<div class="filters my-3">
+		<div class="filters__search row justify-content-between">
+			<div class="col-lg-4">
+				<div class="input-group input-group-sm">
+					<div class="input-group-btn">
+						<button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Product Title
+						</button>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="#">Listing ID</a>
+							<a class="dropdown-item" href="#">Product Title</a>
+						</div>
+					</div>
+					<input type="text" class="form-control" placeholder="Type to Search" aria-label="Text input with dropdown button">
+				</div>
+			</div>
+
+			<a class="filters__toggle open">
+				<img alt="" src="./assets/img/filter.png">
+			</a>
+
+			<div class="col-lg-7">
+				<div class="filters__wrap">
+					<div class="row justify-content-end">
+						<div class="dropdown">
+							<button class="btn btn-outline-danger btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Price Status
+							</button>
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								<a class="dropdown-item" href="#">At my min</a>
+								<a class="dropdown-item" href="#">At my max</a>
+								<a class="dropdown-item" href="#">Only seller</a>
+							</div>
+						</div>
+						<div class="dropdown">
+							<button class="btn btn-outline-danger btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Sellers
+							</button>
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								<a class="dropdown-item" href="#">At my min</a>
+								<a class="dropdown-item" href="#">At my max</a>
+								<a class="dropdown-item" href="#">Only seller</a>
+							</div>
+						</div>
+						<div class="dropdown">
+							<button class="btn btn-outline-danger btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								My Price
+							</button>
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								<a class="dropdown-item" href="#">At my min</a>
+								<a class="dropdown-item" href="#">At my max</a>
+								<a class="dropdown-item" href="#">Only seller</a>
+							</div>
+						</div>
+						<div class="dropdown">
+							<button class="btn btn-outline-danger btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Sort by
+							</button>
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								<a class="dropdown-item" href="#">At my min</a>
+								<a class="dropdown-item" href="#">At my max</a>
+								<a class="dropdown-item" href="#">Only seller</a>
+							</div>
+						</div>
+						<div class="dropdown">
+							<button class="btn btn-outline-danger btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Order
+							</button>
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								<a class="dropdown-item" href="#">At my min</a>
+								<a class="dropdown-item" href="#">At my max</a>
+								<a class="dropdown-item" href="#">Only seller</a>
+							</div>
+						</div>
+						<button class="btn btn-link btn-sm">
+							<i class="material-icons">&#xE5D5;</i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="tabular">
+		<div class="tabular__header row hidden-xs">
+			<div class="tabular__cell cell-1 t-check">
+				<label class="form-check-label">
+					<input class="form-check-input" type="checkbox" value="">
+				</label>
+			</div>
+			<div class="tabular__cell cell-9 t-product">Product</div>
+			<div class="tabular__cell cell-5 t-price">Price</div>
+			<div class="tabular__cell cell-5 t-rule">Pricing Rule</div>
+			<div class="tabular__cell cell-2 t-listing">Listings</div>
+			<div class="tabular__cell cell-2 t-seller">Sellers</div>
+
+			<div class="tabular__cell cell-5 t-battle">
+				<span class="show-cursor">Price Battlefield <i class="material-icons">&#xE8FD;</i></span>
+			</div>
+		</div>
+
+		<div class="tabular__row row">
+			<div class="tabular-mob-header">
+				<div class="header-secondary replace-header">
+					<ul class="nav pri-menu">
+						<li class="visible-xs pri-menu__hb"> </li>
+						<li class="pri-menu__title"><h2>Product Details</h2></li>
+					</ul>
+				</div>
+			</div>
+			<div class="tabular__cell cell-1 hidden-xs t-check">
+				<label class="form-check-label">
+					<input class="form-check-input" type="checkbox" value="">
+				</label>
+			</div>
+			<div class="tabular__cell cell-9 row t-product">
+				<div class="img-wrap" margin-right="" style="background-image: url(&quot;https://images-eu.ssl-images-amazon.com/images/I/71PMWlQ7HgL._SX355_.jpg&quot;);">
+
+
+				</div>
+				<div class="text-wrap">
+					<span class="sku">B015H0AKTS</span> <span class="marketplaces m-amazon"><span class="m-h"></span></span>
+					<h6 class="prod-title">
+						<a target="blank" title="Crompton Hill Briz 1200mm Ceiling Fan (Brown)" href="http://www.amazon.in/dp/B015H0AKTS">Crompton Hill Briz 1200mm Ceiling Fan (Brown)</a>
+					</h6>
+					<span class="text-lighter">Last tracked: Jun 27, 2017, 2:26 PM</span>
+				</div>
+			</div>
+			<div class="tabular__cell cell-5 t-price">
+
+
+				<span class="violation-icon tooltip" hidden="">
+					<img alt="" src="./assets/img/viol.png">
+					<span class="tooltip__content direction-bottom text-left">
+						Violation Type: <strong>N/A</strong>
+					</span>
+				</span>
+				<span class="price">
+					<span class="rupee">₹</span><span class="amount">1,450</span>
+				</span>
+			</div>
+			<div class="tabular__cell cell-5 t-rule">
+				Amazon Default with Free Shipping
+			</div>
+			<div class="tabular__cell cell-2 pricer-count t-listing">
+				<span class="product-icon"></span> <strong>4</strong>
+				<span class="pricer-count__legend">Listings</span>
+			</div>
+			<div class="tabular__cell cell-2 pricer-count t-seller">
+				<span class="seller-icon">
+				</span>
+				<strong class="big">97</strong>
+				<span class="pricer-count__legend">Sellers</span>
+			</div>
+			<div class="tabular__cell cell-6 t-battle text-center">
+
+			</div>
+
+		</div>
+	</div>
+</div>
