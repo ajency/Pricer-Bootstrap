@@ -5,7 +5,7 @@ export class UploadsCsvServiceService {
 
   constructor() { }
 
-  getData() {
+  public getData() {
     return {
       "success": true,
       "result_count": 18,
