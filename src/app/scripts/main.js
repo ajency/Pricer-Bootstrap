@@ -1,5 +1,16 @@
 $(document).ready(function() {
-  $('.tab__header:first-child').find('.tab__title').attr('class', 'tab__title--active');
+  // $('.tab__header:first-child').find('.tab__title').attr('class', 'tab__title--active');
+});
+
+$('body').on('click', '.tabular__row', function(e) {
+  $(this).toggleClass('open');
+  if ($(e.target).hasClass('row')){
+  };
+  if ($(this).hasClass('open')){
+    // $(this).find('.tabbed-section').hide();
+  } else{
+    // $(this).find('.tabbed-section').addClass('hidden');
+  }
 });
 
 var previousIndex = 0;
@@ -57,11 +68,16 @@ $('body').on('click', '.tab__header', function() {
     previousIndex = tabIndex;
   }
 
-  // Cancel the siblings
-  $(this).closest(".tabContainer").find(".tabbed-section").hide();
-  // Active the thumb & panel
-  $(this).closest(".tabContainer").find(".tabbed-section").eq($(this).index(".tab__header")).show();
+  $('.tab__underline').show();
 
+  // Cancel the siblings
+  $(this).closest(".tabContainer").find(".tabbed-section").addClass('hidden');
+  // Active the thumb & panel
+  $(this).closest(".tabContainer").find(".tabbed-section").eq($(this).index(".tab__header")).removeClass('hidden');
+
+  $('.violation-icon').tooltip()
+
+  // $(this).closest(".tabular__row").addClass("open");
 });
 
 function trimDecimal(number) {

@@ -1,7 +1,7 @@
 <div class="container">
 
 	<div class="header-secondary replace-header">
-		<ul class="nav pri-menu justify-content-between">
+		<ul class="nav pri-menu justify-content-between align-items-center">
 			<!-- <li class="visible-xs pri-menu__hb"> < </li> -->
 
 			<li class="pri-menu__wrap marketplace-tabs show-white">
@@ -21,7 +21,7 @@
 						</div>
 					</li>
 					<li><a>Import</a></li>
-					<li padding-left="">1 to 20 of <strong>39</strong></li>
+					<li class="pl-2">1 to 20 of <strong>39</strong></li>
 				</ul>
 			</li>
 		</ul>
@@ -52,7 +52,7 @@
 				<div class="filters__wrap">
 					<div class="row justify-content-end">
 						<div class="dropdown">
-							<button class="btn btn-outline-danger btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Price Status
 							</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -62,7 +62,7 @@
 							</div>
 						</div>
 						<div class="dropdown">
-							<button class="btn btn-outline-danger btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Sellers
 							</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -72,7 +72,7 @@
 							</div>
 						</div>
 						<div class="dropdown">
-							<button class="btn btn-outline-danger btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								My Price
 							</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -82,7 +82,7 @@
 							</div>
 						</div>
 						<div class="dropdown">
-							<button class="btn btn-outline-danger btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Sort by
 							</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -92,7 +92,7 @@
 							</div>
 						</div>
 						<div class="dropdown">
-							<button class="btn btn-outline-danger btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Order
 							</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -233,22 +233,65 @@
 					<div class="tab__header"><span class="tab__title">Sellers</span></div>
 					<div class="tab__header"><span class="tab__title">Product Info</span></div>
 					<div class="tab__header"><span class="tab__title">Activity</span></div>
-					<div class="tab__underline"></div>
+					<div class="tab__underline" style="display: none;"></div>
 				</div>
 
-				  <div class="tabbed-section tabbed-section-1">
-				    <h3>Hello World</h3>
-				    <span class="divider"></span>
-				    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel modi facere eius, sapiente aut rerum quae consequatur temporibus nam iste voluptates velit placeat sunt natus quia cupiditate assumenda eum ratione.</p>
+				  <div class="tabbed-section tabbed-section-1 hidden">
+				  	<div class="seller-table tabular">
+					    <div class="tabular__header row hidden-xs">
+							<div class="tabular__cell cell-7">Seller</div>
+							<div class="tabular__cell cell-4">ASIN</div>
+							<div class="tabular__cell cell-5">Tracked Since</div>
+							<div class="tabular__cell cell-3">Stockouts</div>
+							<div class="tabular__cell cell-3">Status</div>
+							<div class="tabular__cell cell-4">BB Ownership</div>
+							<div class="tabular__cell cell-4">Price <a class="sort-col neutral"></a></div>
+						</div>
+						<div class="tabular__row row open-ss">
+							<div class="tabular__cell cell-7 row t-sellname">
+								<div class="img-wrap" margin-right="" style="background-image: url(&quot;https://images-eu.ssl-images-amazon.com/images/I/61yiwLCJdFL._SX522_.jpg&quot;);">
+
+								</div>
+								<div class="text-wrap">
+									<h6 class="prod-title" no-margin="" title="gtc company">
+										<a target="blank" href="http://www.amazon.in/gp/aag/main/ref=olp_merch_name_1?ie=UTF8&amp;asin=B015H0B1WI&amp;isAmazonFulfilled=0&amp;seller=AEP86HHVG7VXC">gtc company</a>
+										<span class="marketplaces m-amazon"><span class="m-h"></span></span>
+									</h6>
+									<div class="amazon-stars inline-elem star-4_0">
+									</div>
+									<span class="text-lighter">4</span><br>
+									<span class="text-lighter">(87 ratings)</span>
+									<span class="text-lighter" hidden="">N/A</span>
+								</div>
+							</div>
+							<div class="tabular__cell cell-4 t-sellasin">B015H0B1WI</div>
+							<div class="tabular__cell cell-5 t-sellupdate">Jun 22, 2017, 6:22 PM</div>
+							<div class="tabular__cell cell-3 t-stockout"> <span>--</span> <span class="visible-xs-inline-block">stockouts</span></div>
+							<div class="tabular__cell cell-3 t-status">
+								Active
+							</div>
+							<div class="tabular__cell cell-4 t-bb"> <span>1</span> <span class="visible-xs-inline-block">BuyBox ownership</span></div>
+							<div class="tabular__cell cell-4 t-sellprice">
+								<span class="violation-icon" data-toggle="tooltip" data-placement="bottom" title="Violation Type: MOP Violation">
+									<img alt="" src="./assets/img/viol.png">
+								</span>
+								<span class="price">
+									<span class="rupee">₹</span><span class="amount">1,015</span>
+									<span class="badge badge-warning">BB</span>
+								</span>
+							</div>
+
+						</div>
+				  	</div>
 				  </div>
-				  <div class="tabbed-section tabbed-section-2" style="display: none;">
+				  <div class="tabbed-section tabbed-section-2 hidden">
 				    <h3>What is it ?</h3>
 				    <span class="divider"></span>
 				    <p>This is a small pen to show how to create a tabbed content &amp; navigation, using vanilla Javascript</p>
 				    <p>The style is following some Material design specifications</p>
 				    <p>Feel free to fork, use, or share if you ever find it useful</p>
 				  </div>
-				  <div class="tabbed-section tabbed-section-3" style="display: none;">
+				  <div class="tabbed-section tabbed-section-3 hidden">
 				    <img src="http://thecatapi.com/api/images/get?format=src&type=gif" alt="http://thecatapi.com/api/images/get?format=src&type=gif" />
 				  </div>
 			</div>
