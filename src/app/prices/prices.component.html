@@ -1,7 +1,7 @@
 <div class="container">
 
 	<div class="header-secondary replace-header">
-		<ul class="nav pri-menu justify-content-between">
+		<ul class="nav pri-menu justify-content-between align-items-center">
 			<!-- <li class="visible-xs pri-menu__hb"> < </li> -->
 
 			<li class="pri-menu__wrap marketplace-tabs show-white">
@@ -21,7 +21,7 @@
 						</div>
 					</li>
 					<li><a>Import</a></li>
-					<li padding-left="">1 to 20 of <strong>39</strong></li>
+					<li class="pl-2">1 to 20 of <strong>39</strong></li>
 				</ul>
 			</li>
 		</ul>
@@ -30,7 +30,7 @@
 	<div class="filters my-3">
 		<div class="filters__search row justify-content-between">
 			<div class="col-lg-4">
-				<div class="input-group input-group-sm">
+				<div class="input-group">
 					<div class="input-group-btn">
 						<button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							Product Title
@@ -52,7 +52,7 @@
 				<div class="filters__wrap">
 					<div class="row justify-content-end">
 						<div class="dropdown">
-							<button class="btn btn-outline-danger btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Price Status
 							</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -62,7 +62,7 @@
 							</div>
 						</div>
 						<div class="dropdown">
-							<button class="btn btn-outline-danger btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Sellers
 							</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -72,7 +72,7 @@
 							</div>
 						</div>
 						<div class="dropdown">
-							<button class="btn btn-outline-danger btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								My Price
 							</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -82,7 +82,7 @@
 							</div>
 						</div>
 						<div class="dropdown">
-							<button class="btn btn-outline-danger btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Sort by
 							</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -92,7 +92,7 @@
 							</div>
 						</div>
 						<div class="dropdown">
-							<button class="btn btn-outline-danger btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Order
 							</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -114,7 +114,7 @@
 		<div class="tabular__header row align-items-center hidden-xs">
 			<div class="tabular__cell cell-1 t-check">
 				<label class="form-check-label">
-					<input class="form-check-input" type="checkbox" value="">
+					<input class="" type="checkbox" value="">
 				</label>
 			</div>
 			<div class="tabular__cell cell-9 t-product">Product</div>
@@ -128,7 +128,7 @@
 			</div>
 		</div>
 
-		<div class="tabular__row row">
+		<div class="tabular__row row" *ngFor="let item of productList.data">
 			<div class="tabular-mob-header">
 				<div class="header-secondary replace-header">
 					<ul class="nav pri-menu">
@@ -139,20 +139,19 @@
 			</div>
 			<div class="tabular__cell cell-1 hidden-xs t-check">
 				<label class="form-check-label">
-					<input class="form-check-input" type="checkbox" value="">
+					<input class="" type="checkbox" value="">
 				</label>
 			</div>
 			<div class="tabular__cell cell-9 row t-product">
-				<div class="img-wrap" margin-right="" style="background-image: url(&quot;https://images-eu.ssl-images-amazon.com/images/I/71PMWlQ7HgL._SX355_.jpg&quot;);">
-
-
+				<div class="img-wrap" margin-right="" style="background-image: url();">
+					<img [src]="item.product_details.product_image_url" width="50" alt="">
 				</div>
 				<div class="text-wrap">
-					<span class="sku">B015H0AKTS</span> <span class="marketplaces m-amazon"><span class="m-h"></span></span>
+					<span class="sku">{{item.channel_details.listing_id || naText}}</span> <span class="marketplaces m-flipkart" [ngClass]="{'m-amazon': item.channel_details.channel_name == 'Amazon','m-flipkart': item.channel_details.channel_name == 'Flipkart', 'm-snapdeal': item.channel_details.channel_name == 'Snapdeal', 'm-paytm': item.channel_details.channel_name == 'Paytm'}"><span class="m-h"></span></span>
 					<h6 class="prod-title">
-						<a target="blank" title="Crompton Hill Briz 1200mm Ceiling Fan (Brown)" href="http://www.amazon.in/dp/B015H0AKTS">Crompton Hill Briz 1200mm Ceiling Fan (Brown)</a>
+						<a target="blank" title="Crompton Hill Briz 1200mm Ceiling Fan (Brown)" [href]="item.product_details.product_url" >{{item.product_details.product_name}}</a>
 					</h6>
-					<span class="text-lighter">Last tracked: Jun 27, 2017, 2:26 PM</span>
+					<span class="text-lighter">{{item.repricing.last_tracked_on}}</span>
 				</div>
 			</div>
 			<div class="tabular__cell cell-5 t-price">
@@ -165,20 +164,20 @@
 					</span>
 				</span>
 				<span class="price">
-					<span class="rupee">₹</span><span class="amount">1,450</span>
+					<span class="rupee">₹</span><span class="amount">{{item.repricing.my_price || naText}}</span>
 				</span>
 			</div>
 			<div class="tabular__cell cell-5 t-rule">
-				Amazon Default with Free Shipping
+				{{item.repricing.rule_name }}
 			</div>
 			<div class="tabular__cell cell-2 pricer-count t-listing">
-				<span class="product-icon"></span> <strong>4</strong>
+				<span class="product-icon"></span> <strong>{{item.repricing.tracked_products_count || naText}}</strong>
 				<span class="pricer-count__legend">Listings</span>
 			</div>
 			<div class="tabular__cell cell-2 pricer-count t-seller">
 				<span class="seller-icon">
 				</span>
-				<strong class="big">97</strong>
+				<strong class="big">{{item.repricing.tracked_sellers_count || naText}}</strong>
 				<span class="pricer-count__legend">Sellers</span>
 			</div>
 			<div class="tabular__cell cell-6 t-battle text-center">
@@ -226,6 +225,71 @@
 				    </g>
 				  </svg>
 				</div>
+			</div>
+
+			<div class="tabContainer">
+				<div class="tab">
+					<div class="tab__header" data-tab="tabbed-section-1"><span class="tab__title">Sellers</span></div>
+					<div class="tab__header" data-tab="tabbed-section-2"><span class="tab__title">Product Info</span></div>
+					<div class="tab__header" data-tab="tabbed-section-3"><span class="tab__title">Activity</span></div>
+					<div class="tab__underline" style="display: none;"></div>
+				</div>
+
+				  <div class="tabbed-section tabbed-section-1 hidden">
+				  	<div class="seller-table tabular">
+					    <div class="tabular__header row hidden-xs">
+							<div class="tabular__cell cell-7">Seller</div>
+							<div class="tabular__cell cell-4">ASIN</div>
+							<div class="tabular__cell cell-5">Tracked Since</div>
+							<div class="tabular__cell cell-3">Stockouts</div>
+							<div class="tabular__cell cell-3">Status</div>
+							<div class="tabular__cell cell-4">BB Ownership</div>
+							<div class="tabular__cell cell-4">Price <a class="sort-col neutral"></a></div>
+						</div>
+						<div class="tabular__row row open-ss" *ngFor="let seller of item.sellers">
+							<div class="tabular__cell cell-7 row t-sellname">
+								<div class="img-wrap" margin-right="" style="background-image: url();">
+									<img [src]="seller.product_image" width="25" alt="">
+								</div>
+								<div class="text-wrap">
+									<h6 class="prod-title" no-margin="" title="{{seller.seller || naText}}">
+										<a target="blank" [href]="seller.seller_url">{{seller.seller || naText}}</a>
+										<span class="marketplaces" [ngClass]="{'m-amazon': item.channel_details.channel_name == 'Amazon','m-flipkart': item.channel_details.channel_name == 'Flipkart', 'm-snapdeal': item.channel_details.channel_name == 'Snapdeal', 'm-paytm': item.channel_details.channel_name == 'Paytm'}"><span class="m-h"></span></span>
+									</h6>
+									<div class="amazon-stars inline-elem star-4_0">
+									</div>
+									<span class="text-lighter">4</span><br>
+									<span class="text-lighter">(87 ratings)</span>
+									<span class="text-lighter" hidden="">N/A</span>
+								</div>
+							</div>
+							<div class="tabular__cell cell-4 t-sellasin">{{seller.listing_id  || naText}}</div>
+							<div class="tabular__cell cell-5 t-sellupdate">{{seller.tracked_since || naText}}</div>
+							<div class="tabular__cell cell-3 t-stockout"> <span>{{ seller.stockouts_count ? seller.stockouts_count : '--' }}</span> <span class="visible-xs-inline-block">stockouts</span></div>
+							<div class="tabular__cell cell-3 t-status">
+								Active
+							</div>
+							<div class="tabular__cell cell-4 t-bb"> <span>{{ seller.buy_box_ownership ? seller.buy_box_ownership : '--' }}</span> <span class="visible-xs-inline-block">BuyBox ownership</span></div>
+							<div class="tabular__cell cell-4 t-sellprice">
+								<span class="violation-icon" data-toggle="tooltip" data-placement="bottom" title="Violation Type: MOP Violation">
+									<img alt="" src="./assets/img/viol.png">
+								</span>
+								<span class="price">
+									<span class="rupee">₹</span><span class="amount">{{seller.price || naText}}</span>
+									<span [hidden]="seller.lowest != 'yes'" class="badge badge-success">Lowest</span>
+								</span>
+									<span [hidden]="seller.buy_box != 'yes'" class="badge badge-warning">BB</span>
+							</div>
+
+						</div>
+				  	</div>
+				  </div>
+				  <div class="tabbed-section tabbed-section-2 hidden">
+				    <h3>Product Info</h3>
+				  </div>
+				  <div class="tabbed-section tabbed-section-3 hidden">
+				    <h3>Product Info</h3>
+				  </div>
 			</div>
 
 		</div>

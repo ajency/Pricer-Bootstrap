@@ -23,6 +23,7 @@
 		padding: 8px 10px;
 		background: @bt-grey;
 		font-size: 13px;
+		margin: 0;
 		// flex-wrap: nowrap;
 		&.no-bg {
 			background: transparent;
@@ -30,22 +31,37 @@
 		}
 	}
 	&__row {
-		padding: 15px 10px;
+		padding: 15px 10px 0;
+		margin: 0;
 		border: 1px solid transparent;
+		transition: all 0.3s ease;
 		// flex-wrap: nowrap;
 		&:not(:last-child) {
 			border-bottom: 1px solid @border-base;
 		}
 		&:hover {
-			background: lighten(@bt-grey, 3%);
+			// background: lighten(@bt-grey, 3%);
+			.tab{
+				opacity: 1;
+				transform: translateY(0);
+			}
 		}
 		&.violated {
 			background: fade(@alert-red, 50%);
 		}
+		.tab{
+			opacity: 0;
+			transform: translateY(10px);
+			transition: all 0.2s ease;
+		}
+		.tabbed-section{
+			display: none;
+		}
 	}
 	&__row.open {
 		z-index: 5;
-		// box-shadow: 0 2px 15px rgba(0,0,0,0.05), 0 0 5px rgba(0,0,0,0.1);
+		box-shadow: 0 0 30px #e0e0e0;
+		padding-bottom: 15px;
 		flex-wrap: wrap;
 		border: 1px solid @border-base;
 		&:not(:first-child) {
@@ -53,6 +69,13 @@
 		}
 		&:hover {
 			background: #fff;
+		}
+		.tab{
+			opacity: 1;
+			transform: translateY(0);
+		}
+		.tabbed-section{
+			display: block;
 		}
 	}
 	.open .prod-title a {
@@ -123,8 +146,8 @@
 	background-size: contain;
 	background-position: center;
 	img {
-		width: auto;
-		height: 100%;
+		max-width: 100%;
+		// height: 100%;
 		margin: auto;
 		display: block;
 	}
@@ -262,5 +285,63 @@
 	.tabular .t-bb,
 	.tabular .t-sellasin {
 		padding-top: 35px;
+	}
+}
+
+// SELLERS TAB
+.seller-table {
+	.tabular__header {
+		color: rgba(0,0,0,0.45);
+		margin: 0;
+	}
+	.tabular__row {
+		margin: 0;
+		.prod-title{
+			margin: 0;
+		}
+	}
+	.tabular__row.open & .prod-title a {
+		color: #000;
+		font-size: 90%;
+		font-weight: 600;
+	}
+	.text-wrap .marketplaces {
+		// border: 0;
+		// margin: 0;
+		height: 25px;
+		width: 25px;
+		.m-h{
+			transform: scale(.6) translateY(-15px) translateX(-10px);
+		}
+	}
+	.t-sellname{
+		margin: 0;
+		flex-wrap: nowrap;
+	}
+	.img-wrap{
+		margin-right: 16px;
+	}
+	.price{
+		.amount{
+			font-weight: 600;
+		}
+	}
+	@media (min-width: 768px) {
+		max-height: 250px;
+		overflow: auto;
+		padding-top: 16px;
+		.tabular__header{
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			background: #fff;
+			font-weight: 400;
+			text-transform: uppercase;
+			font-size: 11px;
+			letter-spacing: 1px;
+			padding-right: 18px;
+			z-index: 1;
+		}
 	}
 }
