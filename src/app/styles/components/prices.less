@@ -158,3 +158,41 @@ svg:not(:root){
         background-position: left 20% top;
     }
 }
+
+.price {
+	display: inline-block;
+	padding-bottom: 3px;
+	margin: 0 3px;
+	.rupee {
+		opacity: 0.45;
+	}
+	.amount {
+		font-size: 16px;
+		font-weight: 500;
+		margin-left: 3px;
+	}
+	.badge {
+		margin-top: 3px;
+		// font-size: 12px;
+		font-size: 10px;
+		display: block;
+		height: 4px;
+
+		overflow: hidden;
+		line-height: 5;
+		padding: 0;
+	}
+	&.big .rupee {
+		font-size: 80%;
+	}
+	&.big .amount {
+		font-size: 18px;
+		font-weight: bold;
+	}
+}
+
+.violation-icon {
+	display: inline-block;
+	font-size: 0;
+	vertical-align: top;
+}

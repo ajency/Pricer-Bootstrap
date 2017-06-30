@@ -18,7 +18,7 @@ var previousIndex = 0;
 $('body').on('click', '.tab__header', function() {
   var tabIndex = $(this).index('.tab__header');
 
-  var tabLength = $('.tab .tab__header').length;
+  var tabLength = $(this).closest('.tab').find('.tab__header').length;
   var tabFinalIndex = tabLength - 1;
   var translateString = 'translateX('
   var scaleString = 'scaleX('
@@ -56,7 +56,7 @@ $('body').on('click', '.tab__header', function() {
     var styleStringEnd = 'transform: ' + translateString + translateMathEnd + '%) ' + scaleString + scaleMathEnd + ')';
 
     //$('.tab__underline').attr('style', styleStringStart);
-    $('.tab__underline').attr('style', styleStringEnd);
+    $(this).closest('.tab').find('.tab__underline').attr('style', styleStringEnd);
 
     window.setTimeout(function() {
       //$('.tab__underline').attr('style', styleStringEnd);
@@ -68,12 +68,14 @@ $('body').on('click', '.tab__header', function() {
     previousIndex = tabIndex;
   }
 
-  $('.tab__underline').show();
+  $(this).closest('.tab').find('.tab__underline').show();
+
+  $target = "."+$(this).attr('data-tab');
 
   // Cancel the siblings
   $(this).closest(".tabContainer").find(".tabbed-section").addClass('hidden');
   // Active the thumb & panel
-  $(this).closest(".tabContainer").find(".tabbed-section").eq($(this).index(".tab__header")).removeClass('hidden');
+  $(this).closest(".tabContainer").find($target).removeClass('hidden');
 
   $('.violation-icon').tooltip()
 
