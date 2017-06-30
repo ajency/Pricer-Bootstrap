@@ -1,107 +1,80 @@
+$(document).ready(function() {
+  $('.tab__header:first-child').find('.tab__title').attr('class', 'tab__title--active');
+});
 
-document.addEventListener('DOMContentLoaded', function() {
-  if (document.querySelectorAll('.tabContainer').length && document.querySelectorAll('.sectionsContainer').length) {
-    var activeTab = document.querySelector('.tabContainer').querySelector('.tabs .tab:first-child');
-    var activeSection = document.querySelector('.sectionsContainer').querySelector('.sections .section:first-child');
-    activeTab.classList.add('active');
-    activeSection.classList.add('active');
-  }
+var previousIndex = 0;
 
-  app.tabs.initialize();
-}, false);
+$('body').on('click', '.tab__header', function() {
+  var tabIndex = $(this).index('.tab__header');
 
-var app = {
-  tabs: {
-    initialize: function() {
-      if (document.querySelectorAll('.tabContainer').length) {
-        var container = document.querySelectorAll('.tabContainer');
+  var tabLength = $('.tab .tab__header').length;
+  var tabFinalIndex = tabLength - 1;
+  var translateString = 'translateX('
+  var scaleString = 'scaleX('
 
-        for (var i = 0, l = container.length; i < l; i++) {
-          app.tabs.contain.call(null, container[i]);
-          app.tabs.setIndicatorWidth.call(null, container[i]);
+  var translateMathStart;
 
-          var tabs = container[i].querySelectorAll('.tabs .tab');
+  if (previousIndex !== tabIndex) {
 
-          for (var ii = 0, ll = tabs.length; ii < ll; ii++) {
-            tabs[ii].addEventListener('click', function() {
-              app.tabs.setActiveTab.call(this);
-            }, false);
-          }
-        }
-
-        window.addEventListener('resize', function() {
-          for (var i = 0, l = container.length; i < l; i++) {
-            app.tabs.contain.call(null, container[i]);
-            app.tabs.setIndicatorWidth.call(null, container[i]);
-          }
-        }, false);
-      }
-    },
-    setIndicatorWidth: function(parent) {
-      if (parent.querySelectorAll('.tabs div').length === 0) {
-        parent.querySelector('.tabs').appendChild(document.createElement('div'));
-        parent.querySelector('.tabs div').classList.add('indicator');
-      }
-
-      var indicator = parent.querySelector('.tabs .indicator');
-      var containerRect = parent.querySelector('.tabs').getBoundingClientRect();
-      var curTabRect = parent.querySelector('.tabs .tab.active').getBoundingClientRect();
-
-      // left = left of active element minus left of parent container
-      indicator.style.left = (curTabRect.left - containerRect.left) + 'px';
-      // right = parent container width minus width of active element plus left of active element
-      indicator.style.right = ((containerRect.left + containerRect.width) - (curTabRect.left + curTabRect.width)) + 'px';
-    },
-    setActiveTab: function() {
-      var indicator = this.parentElement.querySelector('.indicator');
-      var parent = this;
-      var newTab = this;
-      var newTabSelector = this.getAttribute('data-tab');
-      var newSection = document.querySelector('.sectionsContainer .sections .section[data-section=' + newTabSelector + ']')
-      var oldSection = document.querySelector('.sectionsContainer .sections .section.active');
-
-      while (!parent.classList.contains('tabs')) {
-        parent = parent.parentElement;
-      }
-
-      var oldTab = parent.querySelector('.tab.active');
-
-      var parentRect = parent.getBoundingClientRect();
-      var newTabRect = newTab.getBoundingClientRect();
-      var indicatorRect = indicator.getBoundingClientRect();
-
-      if (indicatorRect.left < newTabRect.left) {
-        TweenMax.to(indicator, .2, {
-          right: ((parentRect.left + parentRect.width) - (newTabRect.left + newTabRect.width)) + 'px',
-          ease: Power2.easeOut
-        });
-
-        TweenMax.to(indicator, .2, {
-          left: (newTabRect.left - parentRect.left) + 'px',
-          ease: Power2.easeOut,
-          delay: .1
-        });
+    if (tabIndex > previousIndex) {
+      if (previousIndex === 0) {
+        translateMathStart = 0;
+        console.log('Translate Start: ' + translateMathStart);
       } else {
-        TweenMax.to(indicator, .2, {
-          left: (newTabRect.left - parentRect.left) + 'px',
-          ease: Power2.easeOut
-        });
-
-        TweenMax.to(indicator, .2, {
-          right: ((parentRect.left + parentRect.width) - (newTabRect.left + newTabRect.width)) + 'px',
-          ease: Power2.easeOut,
-          delay: .1
-        });
+        translateMathStart = trimDecimal(previousIndex / tabLength);
+        console.log('Translate Start: ' + translateMathStart);
       }
-
-      oldTab.classList.remove('active');
-      oldSection.classList.remove('active');
-      this.classList.add('active');
-      newSection.classList.add('active');
-
-    },
-    contain: function(container) {
-
+    } else if (tabIndex < previousIndex) {
+      translateMathStart = trimDecimal(tabIndex / tabLength);
+      console.log('Translate Start: ' + translateMathStart);
+    } else if (tabIndex === 0) {
+      translateMathStart = trimDecimal(tabIndex / tabLength);
+      console.log('Translate Start: ' + translateMathStart);
     }
+
+    var translateMathEnd = trimDecimal(tabIndex / tabLength);
+    console.log('Translate End: ' + translateMathEnd);
+
+    var scaleMathStart = (1 / tabLength) * (Math.abs((tabIndex - previousIndex)) + 1);
+    console.log('Scale Start:' + scaleMathStart);
+
+    var scaleMathEnd = 1 / tabLength;
+    console.log('Scale End:' + scaleMathEnd);
+
+    var styleStringStart = 'transform: ' + translateString + translateMathStart + '%) ' + scaleString + scaleMathStart + ')';
+    var styleStringEnd = 'transform: ' + translateString + translateMathEnd + '%) ' + scaleString + scaleMathEnd + ')';
+
+    //$('.tab__underline').attr('style', styleStringStart);
+    $('.tab__underline').attr('style', styleStringEnd);
+
+    window.setTimeout(function() {
+      //$('.tab__underline').attr('style', styleStringEnd);
+    }, 200);
+
+    $('.tab__title--active').attr('class', 'tab__title');
+    $(this).find('.tab__title').attr('class', 'tab__title--active');
+
+    previousIndex = tabIndex;
   }
+
+  // Cancel the siblings
+  $(this).closest(".tabContainer").find(".tabbed-section").hide();
+  // Active the thumb & panel
+  $(this).closest(".tabContainer").find(".tabbed-section").eq($(this).index(".tab__header")).show();
+
+});
+
+function trimDecimal(number) {
+  number = +number.toFixed(2);
+
+  if(number.toString().length > 2) {
+    number = number.toString().slice(2, 4);
+  }
+
+  if(number.toString().length === 1 && number.toString() !== "0") {
+    number = number.toString().concat("0");
+  }
+
+  return number;
 }
+

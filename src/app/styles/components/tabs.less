@@ -1,61 +1,46 @@
-.tabContainer {
-    padding: 0 50px;
-    box-shadow: 0 3px 5px 0 rgba(0,0,0,.2);
-    .tabs {
-        position: relative;
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: space-around;
-        .tab {
-            display: block;
-            padding: 20px;
-            width: 100%;
-            text-align: center;
-            text-transform: uppercase;
-            white-space: nowrap;
-            cursor: pointer;
-            // color: lighten($mainTextColor, 30);
-            .icon,
-            .text {
-                display: inline-block;
-                vertical-align: middle;
-                cursor: pointer;
-            }
-            .icon {
-                font-size: 30px;
-            }
-            .text {
-                font-size: 20px;
-                margin-left: 10px;
-            }
-            &.active {
-                // color: $accentColor;
-                font-weight: 300;
-            }
-        }
-        .indicator {
-            position: absolute;
-            bottom: 0;
-            height: 3px;
-            background: @bt-red;
-        }
-    }
+.tab {
+  // box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+  background-color: #fffff;
+  display: inline-block;
+  position: relative;
 }
-.sectionsContainer {
-    padding: 30px 50px 0;
-    .sections {
-        .section {
-            display: none;
+.tab__header {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  padding: 1em 0;
+  text-align: center;
+  transition: border-bottom .4s;
+  width: 10em;
+}
+.tab__title, .tab__title--active {
+  color: rgba(0, 0, 0, 0.38);
+  // font-family: 'Roboto';
+  transition: color .4s;
+}
+.tab__title--active {
+  color: @text-dark;
+  font-weight: bold;
+}
+.tab__underline {
+  background-color: @bt-red;
+  bottom: 0;
+  height: 2px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  transform: translateX(0%) scaleX(0.33);
+  transform-origin: left center;
+  transition: transform .4s;
+  width: 100%;
+  z-index: 10000;
+}
 
-            p {
-                font-size: 18px;
-                line-height: 1.2;
-                margin-bottom: 25px;
-            }
+.tabContainer{
+    text-align: center;
+    width: 100%;
+}
 
-            &.active {
-                display: block;
-            }
-        }
-    }
+.tabbed-section{
+    text-align: left;
 }
