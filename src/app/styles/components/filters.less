@@ -6,4 +6,35 @@
 		padding: .5rem;
 		margin: 0 0.2rem;
 	}
+
+	@media (max-width: 767px){
+		&__search{
+			margin: 0;
+			.col-lg-4{
+				flex-basis: 85%;
+			}
+			.filters__toggle{
+				flex-basis: 15%;
+			}
+		}
+		&__wrap{
+			margin-top: 15px;
+			.dropdown{
+				width: 100%;
+				padding: 0;
+			}
+			.btn-outline-secondary{
+				padding: 0.8rem;
+				margin: 0;
+				width: 100%;
+				text-align: left;
+			}
+			.show>.dropdown-menu {
+			    display: block;
+			    position: static;
+			    float: none;
+			}
+
+		}
+	}
 }

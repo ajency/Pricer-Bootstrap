@@ -187,6 +187,9 @@
 }
 @media (max-width: 767px) {
 	.tabular {
+		&__header{
+			display: none;
+		}
 		&__row {
 			position: relative;
 			background: #fff;
@@ -199,6 +202,10 @@
 			box-shadow: none;
 			margin-bottom: 0;
 			flex-wrap: nowrap;
+		}
+
+		.t-check{
+			display: none;
 		}
 
 		// for seller table in prices.html > product-info
@@ -245,6 +252,10 @@
 		.t-sellprice {
 			order: 2;
 			text-align: right;
+		}
+		.tabContainer{
+			order: 8;
+			display: none;
 		}
 	}
 	.seller-table {
