@@ -9,7 +9,7 @@ export class PricesServiceService {
     return {
       "success": true,
       "result_count": 41,
-      "results_per_page": 20,
+      "results_per_page": 10,
       "page": 1,
       "data": [
         {

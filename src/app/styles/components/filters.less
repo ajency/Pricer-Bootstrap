@@ -2,37 +2,93 @@
 	.btn-outline-secondary{
 		color: #545454;
 		font-weight: 600;
-		font-size: 0.775rem;
+		font-size: 0.75rem;
 		padding: .5rem;
 		margin: 0 0.2rem;
+	}
+	.reset-btn{
+		padding: 0.39375rem 1rem;
+	}
+	&__wrap{
+		opacity: 0;
+		max-height: 0;
+		overflow: hidden;
+		transition: all 0.3s ease;
+		&.open{
+			opacity: 1;
+			overflow: visible;
+			max-height: 1000px;
+		}
+	}
+
+	@media (min-width: 767px){
+		&__search{
+			position: relative;
+		}
+		.filters__toggle{
+			padding: 6px 10px 0 0;
+		}
+		&__wrap{
+			margin: 15px 12px 0;
+			&.open{
+				max-height: 35px;
+			}
+		}
+	}
+	@media (min-width: 1280px){
+		&__wrap{
+			margin: 2px 0 0;
+		}
 	}
 
 	@media (max-width: 767px){
 		&__search{
-			margin: 0;
+			margin: 0 8px;
 			.col-lg-4{
 				flex-basis: 85%;
 			}
 			.filters__toggle{
 				flex-basis: 15%;
+				padding-top: 5px;
 			}
 		}
 		&__wrap{
-			margin-top: 15px;
+			.reset-btn{
+				order: 1;
+				margin-left: auto;
+			}
 			.dropdown{
 				width: 100%;
 				padding: 0;
+				order: 2;
 			}
 			.btn-outline-secondary{
 				padding: 0.8rem;
 				margin: 0;
 				width: 100%;
 				text-align: left;
+				border-top: 0;
+				border-left: 0;
+				border-right: 0;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
 			}
 			.show>.dropdown-menu {
 			    display: block;
 			    position: static;
 			    float: none;
+			}
+			&.open{
+				margin: 15px 12px 0;
+				position: relative;
+				&:before{
+					content: "Filters";
+					position: absolute;
+					top: 8px;
+					left: 4px;
+					font-weight: 600;
+				}
 			}
 
 		}
