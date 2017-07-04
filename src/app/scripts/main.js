@@ -113,6 +113,9 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
   $('body').on('click', '.tabular__row', function(e) {
     $(this).toggleClass('open');
   });
+  // $('body').on('click', '.tab__header', function(e) {
+  //   $(this).closest(".tabular__row").addClass("open");
+  // });
   // $('body').on('click', '.pri-menu__hb', function(event) {
   //   target = event.target
   //   $(target).closest('.tabular__row').removeClass('open');

@@ -35,15 +35,26 @@
 		margin: 0;
 		border: 1px solid transparent;
 		transition: all 0.3s ease;
+		animation: fadeinup 1s;
 		// flex-wrap: nowrap;
 		&:not(:last-child) {
 			border-bottom: 1px solid @border-base;
 		}
 		&:hover {
 			// background: lighten(@bt-grey, 3%);
+			box-shadow: 0 0 30px #e0e0e0;
 			.tab{
 				opacity: 1;
 				transform: translateY(0);
+			}
+			.tab__header{
+				// padding: 0.5rem 0;
+			}
+			.price .badge{
+				line-height: 12px;
+				padding: 0 5px;
+				color: #fff;
+				height: 14px;
 			}
 		}
 		&.violated {
@@ -73,6 +84,9 @@
 		.tab{
 			opacity: 1;
 			transform: translateY(0);
+		}
+		.tab__header{
+			padding: 0.25rem 0 0.5rem;
 		}
 		.tabbed-section{
 			display: block;
@@ -119,6 +133,21 @@
 			width: auto;
 			padding: 0;
 			width: 100%;
+		}
+		&__row.open {
+			.tabbed-section{
+				height: 45vh;
+				overflow-y: auto;
+				border: 0;
+				margin: 0 16px;
+				padding: 16px;
+			}
+			.tabContainer{
+				display: block;
+				.tab__header{
+					width: 7em;
+				}
+			}
 		}
 	}
 
@@ -185,6 +214,64 @@
 .tabular-mob-header {
 	display: none;
 }
+// SELLERS TAB
+.seller-table {
+	.tabular__header {
+		color: rgba(0,0,0,0.45);
+		margin: 0;
+	}
+	.tabular__row {
+		margin: 0;
+		.prod-title{
+			margin: 0;
+		}
+	}
+	.tabular__row.open & .prod-title a {
+		color: #000;
+		font-size: 90%;
+		font-weight: 600;
+	}
+	.text-wrap .marketplaces {
+		// border: 0;
+		// margin: 0;
+		height: 25px;
+		width: 25px;
+		.m-h{
+			transform: scale(.6) translateY(-15px) translateX(-10px);
+		}
+	}
+	.t-sellname{
+		margin: 0;
+		flex-wrap: nowrap;
+	}
+	.img-wrap{
+		margin-right: 16px;
+	}
+	.price{
+		.amount{
+			font-weight: 600;
+		}
+	}
+	@media (min-width: 768px) {
+		max-height: 250px;
+		overflow: auto;
+		padding-top: 16px;
+		.tabular__header{
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			background: #fff;
+			font-weight: 400;
+			text-transform: uppercase;
+			font-size: 11px;
+			letter-spacing: 1px;
+			padding-right: 18px;
+			z-index: 1;
+		}
+	}
+}
+
 @media (max-width: 767px) {
 	.tabular {
 		&__header{
@@ -266,7 +353,7 @@
 			position: static;
 		}
 		.tabular__row {
-			margin-bottom: 0;
+			margin-bottom: 15px;
 			padding-bottom: 15px;
 		}
 		.tabular__cell {
@@ -299,60 +386,15 @@
 	}
 }
 
-// SELLERS TAB
-.seller-table {
-	.tabular__header {
-		color: rgba(0,0,0,0.45);
-		margin: 0;
-	}
-	.tabular__row {
-		margin: 0;
-		.prod-title{
-			margin: 0;
-		}
-	}
-	.tabular__row.open & .prod-title a {
-		color: #000;
-		font-size: 90%;
-		font-weight: 600;
-	}
-	.text-wrap .marketplaces {
-		// border: 0;
-		// margin: 0;
-		height: 25px;
-		width: 25px;
-		.m-h{
-			transform: scale(.6) translateY(-15px) translateX(-10px);
-		}
-	}
-	.t-sellname{
-		margin: 0;
-		flex-wrap: nowrap;
-	}
-	.img-wrap{
-		margin-right: 16px;
-	}
-	.price{
-		.amount{
-			font-weight: 600;
-		}
-	}
-	@media (min-width: 768px) {
-		max-height: 250px;
-		overflow: auto;
-		padding-top: 16px;
-		.tabular__header{
-			position: absolute;
-			left: 0;
-			right: 0;
-			top: 0;
-			background: #fff;
-			font-weight: 400;
-			text-transform: uppercase;
-			font-size: 11px;
-			letter-spacing: 1px;
-			padding-right: 18px;
-			z-index: 1;
-		}
-	}
+
+
+@keyframes fadeinup {
+    from {
+    	opacity: 0;
+    	transform: translateY(20px);
+    }
+    to   {
+    	opacity: 1;
+    	transform: translateY(0);
+    }
 }

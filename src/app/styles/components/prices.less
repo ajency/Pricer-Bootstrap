@@ -28,7 +28,8 @@
 
 @media screen and (min-width: 768px) {
 	.t-price {
-		padding-left: 20px;
+		padding-right: 20px;
+		text-align: right;
 	}
 	.t-product{
 		flex-wrap: nowrap;
@@ -40,7 +41,7 @@
 		background: @bt-grey;
 	}
 	.filters {
-		margin: 0 -15px;
+		margin: 0 -8px;
 		margin-bottom: 15px;
 	}
 	// tabular
@@ -108,7 +109,7 @@
 			top: 0;
 			right: 0;
 			height: 47px;
-			padding: 0 15px;
+			padding: 0 8px;
 			// width: 100vw;
 		}
 		.open .t-product {
@@ -134,7 +135,7 @@
 		}
 		.open .t-battle {
 			display: block;
-			padding: 15px;
+			padding: 15px 0;
 			order: 7;
 			width: 50%;
 		}
@@ -170,6 +171,7 @@ svg:not(:root){
 	display: inline-block;
 	padding-bottom: 3px;
 	margin: 0 3px;
+	vertical-align: middle;
 	.rupee {
 		opacity: 0.45;
 	}
