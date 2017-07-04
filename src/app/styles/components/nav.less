@@ -9,7 +9,7 @@
 	// 	clear: both;
 	// }
 	&__title {
-		padding: 10px 0;
+		padding: 5px 0;
 		white-space: nowrap;
 		text-overflow: ellipsis;
 		overflow: hidden;
@@ -140,3 +140,20 @@
 		}
 	}
 }
+
+@media (min-width: 768px){
+	.navbar-light .navbar-nav .active>.nav-link{
+		border-bottom: 3px solid @bt-red;
+		border-radius: 0;
+	}
+}
+
+// .navbar{
+// 	position: fixed;
+// 	width: inherit;
+// 	will-change: transform;
+// 	z-index: 30;
+// }
+// .header-secondary{
+// 	padding-top: 70px;
+// }

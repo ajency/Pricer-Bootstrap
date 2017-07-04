@@ -28,7 +28,8 @@
 
 @media screen and (min-width: 768px) {
 	.t-price {
-		padding-left: 20px;
+		padding-right: 20px;
+		text-align: right;
 	}
 	.t-product{
 		flex-wrap: nowrap;
@@ -40,7 +41,7 @@
 		background: @bt-grey;
 	}
 	.filters {
-		margin: 0 -15px;
+		margin: 0 -8px;
 		margin-bottom: 15px;
 	}
 	// tabular
@@ -78,9 +79,6 @@
 			width: 17%;
 			padding-top: 18px;
 		}
-		.t-battler {
-			order: 6;
-		}
 
 
 
@@ -94,6 +92,7 @@
 			margin: 0;
 			padding: 63px 0 0 0;
 			align-content: flex-start;
+			// width: 100vw;
 			.pricer-count__legend {
 				display: block;
 				opacity: 0.45;
@@ -110,7 +109,8 @@
 			top: 0;
 			right: 0;
 			height: 47px;
-			padding: 0 15px;
+			padding: 0 8px;
+			// width: 100vw;
 		}
 		.open .t-product {
 			padding: 0 15px;
@@ -123,14 +123,21 @@
 		}
 		.open .t-seller {
 		}
-		.open .t-rule {}
+		.open .t-rule {
+			display: block;
+			padding: 15px;
+			order: 6;
+			width: 50%;
+		}
 		.open .t-listing {
 			width: 20%;
 			padding-left: 15px;
 		}
-		.open .t-battler {
+		.open .t-battle {
 			display: block;
-			padding: 15px;
+			padding: 15px 0;
+			order: 7;
+			width: 50%;
 		}
 	}
 }
@@ -164,12 +171,13 @@ svg:not(:root){
 	display: inline-block;
 	padding-bottom: 3px;
 	margin: 0 3px;
+	vertical-align: middle;
 	.rupee {
 		opacity: 0.45;
 	}
 	.amount {
 		font-size: 16px;
-		font-weight: 500;
+		font-weight: 600;
 		margin-left: 3px;
 	}
 	.badge {

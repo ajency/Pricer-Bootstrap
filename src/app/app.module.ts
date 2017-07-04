@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { UploadsCsvComponent } from './uploads-csv/uploads-csv.component';
 import { PricesComponent } from './prices/prices.component';
 
@@ -21,7 +22,8 @@ const appRoutes: Routes = [
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
-    BrowserModule
+    BrowserModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

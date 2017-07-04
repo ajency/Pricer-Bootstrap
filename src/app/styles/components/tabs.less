@@ -8,9 +8,9 @@
   box-sizing: border-box;
   cursor: pointer;
   display: inline-block;
-  padding: 1em 0;
+  padding: 0 0 0.25rem;
   text-align: center;
-  transition: border-bottom .4s;
+  transition: all .4s ease;
   width: 10em;
 }
 .tab__title, .tab__title--active {
@@ -20,6 +20,9 @@
 }
 .tab__title--active {
   color: @text-dark;
+  font-weight: bold;
+}
+.tab__title {
   font-weight: bold;
 }
 .tab__underline {
