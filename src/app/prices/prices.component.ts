@@ -13,7 +13,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 export class PricesComponent implements OnInit {
 
-	private priceListLoading: boolean = false;
+	private priceListLoading: boolean = true;
 	private productList: any = [];
 	private paginationConfig: any = {
 	  itemsPerPage: 5,
@@ -54,7 +54,9 @@ export class PricesComponent implements OnInit {
   }
 
   ngOnInit() {
-  	this.getPriceList(1);
+  	setTimeout(() => {
+  		this.getPriceList(1);
+  	}, 2000);
     console.log (this._pricesservice.getData())
   }
 
