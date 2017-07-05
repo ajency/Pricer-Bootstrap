@@ -48,133 +48,132 @@ body{
 }
 
 input[type="checkbox"], input[type="radio"] {
-  width: 18px;
-  appearance: none;
-  -webkit-appearance: none;
-  outline: none;
-  position: relative;
-  border: none;
-  cursor: pointer;
-  margin-left: -16px;
-  vertical-align: -3px;
-  outline-width: 0;
-  border-radius: 50%;
+	width: 18px;
+	appearance: none;
+	-webkit-appearance: none;
+	outline: none;
+	position: relative;
+	border: none;
+	cursor: pointer;
+	margin-left: -16px;
+	vertical-align: -3px;
+	outline-width: 0;
+	border-radius: 50%;
 
-  &:focus{
-    // animation: press .8s 1;
-  }
+	&:focus{
+	// animation: press .8s 1;
+	}
 
-  &:before, &:after {
-    content: "";
-  }
+	&:before, &:after {
+		content: "";
+	}
 
-  &:after {
+	&:after {
+		display: block;
+		width: 14px;
+		height: 14px;
+		margin-top: 0;
+		margin-right: 5px;
+		border: 2px solid #d2d2d2;
+		transition: 240ms;
+	}
 
-    display: block;
-    width: 14px;
-    height: 14px;
-    margin-top: -2px;
-    margin-right: 5px;
-    border: 2px solid #bbb;
-    transition: 240ms;
-  }
+	&:disabled {
+		&:after {
+			border-color: #ddd;
+			background-color: #eee;
+			cursor: not-allowed;
+		}
 
-  &:disabled {
-    &:after {
-      border-color: #ddd;
-      background-color: #eee;
-      cursor: not-allowed;
-    }
+		&:checked {
+			&:after {
+				background-color: #eee;
+				border-color: #ddd;
+			}
 
-    &:checked {
-      &:after {
-        background-color: #eee;
-        border-color: #ddd;
-      }
-
-      &:before {
-        border-color: #999;
-      }
-    }
-  }
+			&:before {
+				border-color: #999;
+			}
+		}
+	}
 }
 
 input[type="checkbox"] {
 
   &:after {
-    border-radius: 2px;
-    background-color: #fff;
-    z-index: 999;
+	border-radius: 2px;
+	background-color: #fff;
+	z-index: 999;
   }
 
   &:checked{
-    &:after {
-      background-color: @bt-red;
-      border-color: @bt-red;
-    }
-    &:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 5px;
-      display: table;
-      width: 4px;
-      height: 8px;
-      border: 2px solid #fff;
-      border-top-width: 0;
-      border-left-width: 0;
-      transform: rotate(45deg);
-    }
+	&:after {
+	  background-color: @bt-red;
+	  border-color: @bt-red;
+	}
+	&:before {
+	  content: "";
+	  position: absolute;
+	  top: 2px;
+	  left: 5px;
+	  display: table;
+	  width: 4px;
+	  height: 8px;
+	  border: 2px solid #fff;
+	  border-top-width: 0;
+	  border-left-width: 0;
+	  transform: rotate(45deg);
+	}
   }
 }
 
 input[type="radio"] {
 	margin-left: 16px;
    &:before{
-     position: absolute;
-     left: 0;
-     top: 0;
-     background-color: @bt-red;
-     width: 14px;
-     height: 14px;
-     display: block;
-     margin-top: -2px;
-     border-radius: 50%;
-     transition: 240ms;
-     transform: scale(0);
+	 position: absolute;
+	 left: 0;
+	 top: 0;
+	 background-color: @bt-red;
+	 width: 14px;
+	 height: 14px;
+	 display: block;
+	 margin-top: 0;
+	 border-radius: 50%;
+	 transition: 240ms;
+	 transform: scale(0);
    }
 
    &:after {
-    border-radius: 50%;
+	border-radius: 50%;
   }
 
   &:checked{
-    &:before {
-        transform: scale(.5);
-    }
-    &:after {
-      border-color: @bt-red;
-    }
+	&:before {
+		transform: scale(.5);
+	}
+	&:after {
+	  border-color: @bt-red;
+	}
 
-    &:disabled{
-      &:before{
-        background-color: #ccc;
-      }
-    }
+	&:disabled{
+	  &:before{
+		background-color: #ccc;
+	  }
+	}
   }
 }
 
 @keyframes press {
   0% {
-    box-shadow: 0 0 0 0 lighten(@bt-red, 10%);
+	box-shadow: 0 0 0 0 lighten(@bt-red, 10%);
   }
 
   50% {
-     box-shadow: 0 0 0 15px fade( lighten(@bt-red, 10%) , 40% );
+	 box-shadow: 0 0 0 15px fade( lighten(@bt-red, 10%) , 40% );
   }
 
   100% {
-    box-shadow: 0 0 0 15px fade( lighten(@bt-red, 10%) , 0 );
+	box-shadow: 0 0 0 15px fade( lighten(@bt-red, 10%) , 0 );
   }
 }
 
@@ -189,4 +188,64 @@ input[type="radio"] {
 
 .btn{
 	text-transform: none;
+}
+
+.rippleCSS {
+  position: relative;
+  overflow: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+		  transform: translate3d(0, 0, 0);
+}
+.rippleCSS{
+	&:before {
+	  content: "";
+	  display: block;
+	  position: absolute;
+	  width: 100%;
+	  height: 100%;
+	  top: 0;
+	  left: 0;
+	  pointer-events: none;
+	  background-image: -webkit-radial-gradient(circle, #000 10%, transparent 10.01%);
+	  background-image: radial-gradient(circle, #000 10%, transparent 10.01%);
+	  background-repeat: no-repeat;
+	  background-position: 50%;
+	  -webkit-transform: scale(10, 10);
+			  transform: scale(10, 10);
+	  opacity: 0;
+	  -webkit-transition: opacity 1s, -webkit-transform 0.5s;
+	  transition: opacity 1s, -webkit-transform 0.5s;
+	  transition: transform 0.5s, opacity 1s;
+	  transition: transform 0.5s, opacity 1s, -webkit-transform 0.5s;
+	}
+	&:active:before {
+	  -webkit-transform: scale(0, 0);
+			  transform: scale(0, 0);
+	  opacity: 0.2;
+	  -webkit-transition: 0s;
+	  transition: 0s;
+	}
+}
+
+
+@keyframes fadeinup {
+    from {
+    	opacity: 0;
+    	transform: translateY(20px);
+    }
+    to   {
+    	opacity: 1;
+    	transform: translateY(0);
+    }
+}
+
+@keyframes fadeindown {
+    from {
+    	opacity: 0;
+    	transform: translateY(-20px);
+    }
+    to   {
+    	opacity: 1;
+    	transform: translateY(0);
+    }
 }

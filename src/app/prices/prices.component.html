@@ -27,20 +27,20 @@
 		</ul>
 	</div>
 
-	<div class="filters my-3">
+	<div class="filters">
 		<div class="filters__search row justify-content-start">
-			<div class="col-lg-4 col-md-5">
+			<div class="col-lg-3 col-md-5">
 				<div class="input-group">
 					<div class="input-group-btn">
-						<button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<button type="button" class="btn btn-default btn-sm dropdown-toggle search-dropdown rippleCSS" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							<i class="material-icons">&#xE8B6;</i> Product Title
 						</button>
 						<div class="dropdown-menu">
-							<a class="dropdown-item" href="#">Listing ID</a>
-							<a class="dropdown-item" href="#">Product Title</a>
+							<a class="dropdown-item">Listing ID</a>
+							<a class="dropdown-item">Product Title</a>
 						</div>
 					</div>
-					<input type="text" class="form-control" placeholder="Type to Search" aria-label="Text input with dropdown button">
+					<input type="text" class="form-control" placeholder="Type to search" aria-label="Text input with dropdown button">
 				</div>
 			</div>
 
@@ -49,102 +49,152 @@
 			</a>
 
 			<div class="col-lg-7 col-md-12">
-				<div class="filters__wrap">
+				<div class="filters__wrap open">
 					<div class="row justify-content-start">
 						<div class="dropdown">
-							<button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<button class="btn btn-outline-secondary btn-sm dropdown-toggle rippleCSS" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<span class="hidden-md-up toggle-indicator"></span>
 								Price Status
 							</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a class="dropdown-item" href="#">At my min</a>
-								<a class="dropdown-item" href="#">At my max</a>
-								<a class="dropdown-item" href="#">Only seller</a>
+								<div class="form-check">
+									<label class="form-check-label">
+										At my min
+										<input class="" type="radio" name="status" id="status_asc" value="status_min">
+									</label>
+								</div>
+								<div class="form-check">
+									<label class="form-check-label">
+										At my max
+										<input class="" type="radio" name="status" id="status_desc" value="status_max" checked="">
+									</label>
+								</div>
+								<div class="form-check">
+									<label class="form-check-label">
+										Only seller
+										<input class="" type="radio" name="status" id="status_desc" value="status_seller">
+									</label>
+								</div>
 							</div>
 						</div>
 						<div class="dropdown">
-							<button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<button class="btn btn-outline-secondary btn-sm dropdown-toggle rippleCSS" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<span class="hidden-md-up toggle-indicator"></span>
 								Sellers
 							</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a class="dropdown-item" href="#">At my min</a>
-								<a class="dropdown-item" href="#">At my max</a>
-								<a class="dropdown-item" href="#">Only seller</a>
+								<div class="form-check">
+									<label class="form-check-label">
+										At my min
+										<input class="" type="radio" name="seller" id="seller_asc" value="seller_min">
+									</label>
+								</div>
+								<div class="form-check">
+									<label class="form-check-label">
+										At my max
+										<input class="" type="radio" name="seller" id="seller_desc" value="seller_max" checked>
+									</label>
+								</div>
+								<div class="form-check">
+									<label class="form-check-label">
+										Only seller
+										<input class="" type="radio" name="seller" id="seller_desc" value="seller_seller">
+									</label>
+								</div>
 							</div>
 						</div>
 						<div class="dropdown">
-							<button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<button class="btn btn-outline-secondary btn-sm dropdown-toggle rippleCSS" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<span class="hidden-md-up toggle-indicator"></span>
 								My Price
 							</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a class="dropdown-item" href="#">At my min</a>
-								<a class="dropdown-item" href="#">At my max</a>
-								<a class="dropdown-item" href="#">Only seller</a>
+								<div class="form-check">
+									<label class="form-check-label">
+										At my min
+										<input class="" type="radio" name="price" id="price_asc" value="price_min">
+									</label>
+								</div>
+								<div class="form-check">
+									<label class="form-check-label">
+										At my max
+										<input class="" type="radio" name="price" id="price_desc" value="price_max">
+									</label>
+								</div>
+								<div class="form-check">
+									<label class="form-check-label">
+										Only seller
+										<input class="" type="radio" name="price" id="price_desc" value="price_seller">
+									</label>
+								</div>
 							</div>
 						</div>
 						<div class="dropdown">
-							<button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<button class="btn btn-outline-secondary btn-sm dropdown-toggle rippleCSS" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<span class="hidden-md-up toggle-indicator"></span>
 								Sort by
 							</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 								<div class="form-check">
 									<label class="form-check-label">
-									    Listing ID
-									    <input class="" type="radio" name="sort" id="sort_id" value="id">
+										Listing ID
+										<input class="" type="radio" name="sort" id="sort_id" value="id">
 									</label>
 								</div>
 								<div class="form-check">
 									<label class="form-check-label">
-									    Product Title
-									    <input class="" type="radio" name="sort" id="sort_prod" value="prod">
+										Product Title
+										<input class="" type="radio" name="sort" id="sort_prod" value="prod">
 									</label>
 								</div>
 								<div class="form-check">
 									<label class="form-check-label">
-									    Min Price
-									    <input class="" type="radio" name="sort" id="sort_min_price" value="min_price">
+										Min Price
+										<input class="" type="radio" name="sort" id="sort_min_price" value="min_price">
 									</label>
 								</div>
 								<div class="form-check">
 									<label class="form-check-label">
-									    Max Price
-									    <input class="" type="radio" name="sort" id="sort_max_price" value="max_price">
+										Max Price
+										<input class="" type="radio" name="sort" id="sort_max_price" value="max_price">
 									</label>
 								</div>
 								<div class="form-check">
 									<label class="form-check-label">
-									    MOP
-									    <input class="" type="radio" name="sort" id="sort_mop" value="mop">
+										MOP
+										<input class="" type="radio" name="sort" id="sort_mop" value="mop">
 									</label>
 								</div>
 								<div class="form-check">
 									<label class="form-check-label">
-									    MRP
-									    <input class="" type="radio" name="sort" id="sort_mrp" value="mrp">
+										MRP
+										<input class="" type="radio" name="sort" id="sort_mrp" value="mrp">
 									</label>
 								</div>
 							</div>
 						</div>
 						<div class="dropdown">
-							<button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<button class="btn btn-outline-secondary btn-sm dropdown-toggle rippleCSS" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<span class="hidden-md-up toggle-indicator"></span>
 								Order
 							</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 								<div class="form-check">
 									<label class="form-check-label">
-									    Asc
-									    <input class="" type="radio" name="order" id="order_asc" value="asc">
+										Asc
+										<input class="" type="radio" name="order" id="order_asc" value="asc">
 									</label>
 								</div>
 								<div class="form-check">
 									<label class="form-check-label" for="order_desc">
-									    Desc
+										Desc
 										<input class="" type="radio" name="order" id="order_desc" value="desc">
 									</label>
 								</div>
 							</div>
 						</div>
-						<button class="btn btn-link btn-sm reset-btn">
-							<i class="material-icons">&#xE5D5;</i> <span class="hidden-md-up">Reset</span>
+						<button class="btn btn-link btn-sm reset-btn rippleCSS">
+							<i class="material-icons hidden-md-down">&#xE5D5;</i> <span class="hidden-md-up">Reset</span>
 						</button>
 					</div>
 				</div>
@@ -260,46 +310,46 @@
 			<div class="tabular__cell cell-6 t-battle text-center">
 				<div id="mainSVGContainer" style="width: 182px;margin: auto;">
 				  <svg height="70" version="1.1" xmlns="http://www.w3.org/2000/svg" width="150">
-				    <g>
-				      <svg height="15" width="150">
-				          <text fill="navy" font-size="10" style="overflow:visible" y="12" x="2.1999999999999993">1,410</text>
-				          <text fill="navy" font-size="10" y="12" x="70.5">3,000</text>
-				      </svg>
+					<g>
+					  <svg height="15" width="150">
+						  <text fill="navy" font-size="10" style="overflow:visible" y="12" x="2.1999999999999993">1,410</text>
+						  <text fill="navy" font-size="10" y="12" x="70.5">3,000</text>
+					  </svg>
 
 
-				      <svg class="drawerContainer" height="70" width="150">
-				        <rect fill="black" height="8" width="2" y="22" x="17.2"></rect>
-				        <rect fill="black" height="8" width="2" y="22" x="83.5"></rect>
-				        <path stroke="black" stroke-width="1" d="M17.2 30 L85.5 30"></path>
+					  <svg class="drawerContainer" height="70" width="150">
+						<rect fill="black" height="8" width="2" y="22" x="17.2"></rect>
+						<rect fill="black" height="8" width="2" y="22" x="83.5"></rect>
+						<path stroke="black" stroke-width="1" d="M17.2 30 L85.5 30"></path>
 
 
 
-				      </svg>
+					  </svg>
 
-				      <svg height="9" width="150">
-				          <path stroke-opacity="0" stroke-width="1" d="M 18.9 15 l -7 0 l 7 9 l 7 -9 l -7 0" fill="red"></path>
-				      </svg>
+					  <svg height="9" width="150">
+						  <path stroke-opacity="0" stroke-width="1" d="M 18.9 15 l -7 0 l 7 9 l 7 -9 l -7 0" fill="red"></path>
+					  </svg>
 
-				      <!---->
+					  <!---->
 
-				    </g>
+					</g>
 
-				    <g>
-				      <svg class="drawerContainer" height="70" width="150">
-				        <path stroke-dasharray="3,3" stroke-width="1" d="M 0 42 L 150 42" stroke="#337ab7"></path>
-				        <rect height="8" width="2" y="42" fill="#337ab7" x="0"></rect>
-				        <rect height="8" width="2" y="42" fill="#337ab7" x="148"></rect>
-				      </svg>
+					<g>
+					  <svg class="drawerContainer" height="70" width="150">
+						<path stroke-dasharray="3,3" stroke-width="1" d="M 0 42 L 150 42" stroke="#337ab7"></path>
+						<rect height="8" width="2" y="42" fill="#337ab7" x="0"></rect>
+						<rect height="8" width="2" y="42" fill="#337ab7" x="148"></rect>
+					  </svg>
 
-				      <!----><svg height="10" width="150">
-				        <circle cy="42" fill="orange" r="5" cx="0"></circle>
-				      </svg>
+					  <!----><svg height="10" width="150">
+						<circle cy="42" fill="orange" r="5" cx="0"></circle>
+					  </svg>
 
-				      <svg height="15" width="150">
-				        <text fill="navy" font-size="10" y="63" x="-15">1,010</text>
-				        <text fill="navy" font-size="10" y="63" x="135">4,500</text>
-				      </svg>
-				    </g>
+					  <svg height="15" width="150">
+						<text fill="navy" font-size="10" y="63" x="-15">1,010</text>
+						<text fill="navy" font-size="10" y="63" x="135">4,500</text>
+					  </svg>
+					</g>
 				  </svg>
 				</div>
 			</div>
@@ -313,8 +363,8 @@
 				</div>
 
 				  <div class="tabbed-section tabbed-section-1 hidden">
-				  	<div class="seller-table tabular">
-					    <div class="tabular__header row hidden-sm-down">
+					<div class="seller-table tabular">
+						<div class="tabular__header row hidden-sm-down">
 							<div class="tabular__cell cell-7">Seller</div>
 							<div class="tabular__cell cell-4">ASIN</div>
 							<div class="tabular__cell cell-5">Tracked Since</div>
@@ -360,13 +410,13 @@
 
 						</div>
 
-				  	</div>
+					</div>
 				  </div>
 				  <div class="tabbed-section tabbed-section-2 hidden">
-				    <h3>Product Info</h3>
+					<h3>Product Info</h3>
 				  </div>
 				  <div class="tabbed-section tabbed-section-3 hidden">
-				    <h3>Product Info</h3>
+					<h3>Product Info</h3>
 				  </div>
 			</div>
 
