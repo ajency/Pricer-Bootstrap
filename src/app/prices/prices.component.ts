@@ -16,18 +16,20 @@ export class PricesComponent implements OnInit {
 	private priceListLoading: boolean = true;
 	private productList: any = [];
 	private paginationConfig: any = {
-	  itemsPerPage: 5,
-	  currentPage: 1,
-	  totalItems: 41
+	  itemsPerPage: 0,
+	  currentPage: 0,
+	  totalItems: 0
 	};
-	private pageChanged(page): void{
-	  this.paginationConfig.currentPage = page;
-	  this.getPriceList();
-	}
+
 	private defaultFilters = {
-	  limit: 5,
-	  page: 1
+	 	limit: 20, 
+	 	page: 1, 
+	 	sort: 'created_at', 
+	 	direction: 'desc'
 	}
+
+	private filters: any;
+
 	private dummyProducts = [];
 
   constructor(private _pricesservice: PricesServiceService, private sanitizer:DomSanitizer) {
@@ -37,17 +39,37 @@ export class PricesComponent implements OnInit {
 
   	this.paginationConfig.itemsPerPage = this.defaultFilters.limit;
   	this.paginationConfig.currentPage = this.defaultFilters.page;
+
+		this.filters = Object.assign({},this.defaultFilters);
   }
 
   private getPriceList(page: number = 1): void{
     this.priceListLoading = true
     this.productList = [];
 
-    this.paginationConfig.itemsPerPage = this._pricesservice.getData().results_per_page
-    this.paginationConfig.totalItems = this._pricesservice.getData().result_count
-    this.productList = this._pricesservice.getData().data
-    this.priceListLoading = false
-  }
+		this.paginationConfig.currentPage = page;
+		this.filters.page = page;
+
+    // this.productList = this._pricesservice.getData().data
+		this._pricesservice.sendRequest('https://repricer2.ajency.in/api/api/products/all?','get',this.filters,{"authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImV4cCI6MTUwMDAzNjQzMX0.2jz91408VisTh4TBEAh0XQejO1peaSOx2tVytA5CZAw"})
+		.subscribe((res) => {
+			console.log(res)
+			this.paginationConfig.itemsPerPage = res.results_per_page
+    	this.paginationConfig.totalItems = res.result_count
+
+			this.productList = res.data;
+
+			this.priceListLoading = false;
+		},(err) =>{
+			console.log(err)
+		})
+  };
+
+	pageChanged(page): void{
+		console.log('page',page)
+		this.getPriceList(page);
+	}
+
 
   transform(safeStyle) {
     return this.sanitizer.bypassSecurityTrustStyle(safeStyle);

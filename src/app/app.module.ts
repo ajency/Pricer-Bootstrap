@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { UploadsCsvComponent } from './uploads-csv/uploads-csv.component';
 import { PricesComponent } from './prices/prices.component';
+import { HttpModule } from '@angular/http';
 
 import { RouterModule, Routes } from '@angular/router';
 
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
     PricesComponent
   ],
   imports: [
+    HttpModule,
     RouterModule.forRoot(appRoutes),
     BrowserModule,
     NgxPaginationModule

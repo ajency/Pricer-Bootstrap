@@ -1,9 +1,49 @@
 import { Injectable } from '@angular/core';
+import { Http, Headers } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import * as $ from 'jquery';
+import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class PricesServiceService {
 
-  constructor() { }
+  constructor(private http: Http) { }
+
+  public sendRequest(url: string, method: string = 'get', payload: any = {},optionalHeaders: any = {}, overrideheaders: boolean = false): Observable<any>{
+    let headers = new Headers({'Content-Type': 'application/json','Accept': 'application/json'});
+
+    let opHeaderKeys = Object.keys(optionalHeaders);
+    if(opHeaderKeys.length){
+      if(overrideheaders){
+        headers = new Headers(optionalHeaders);
+      }
+      else{
+        for(let key of opHeaderKeys){
+          headers.append(key,optionalHeaders[key]);
+        }
+      }
+
+    }
+
+    if(method === 'get'){
+      if(Object.keys(payload).length){
+        url = url + $.param(payload);
+        // url = 'https://repricer2.ajency.in/api/api/products/all?limit=20&page=1&sort=created_at&direction=desc';
+      }
+    }
+
+
+    return this.http.get(url,{headers: headers})
+      .map(response => response.json())
+      .catch(this.handleError);
+  }
+
+  private handleError = (error: any): Promise<any> => {
+      console.warn('error in request fetch',error)
+      return Promise.reject(error.message || error);
+    }
 
   public getData() {
     return {

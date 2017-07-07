@@ -250,7 +250,7 @@
 			<strong>No records found</strong>
 		</div>
 
-		<div class="tabular__row row" *ngFor="let item of productList">
+		<div class="tabular__row row" *ngFor="let item of productList | paginate : paginationConfig">
 			<div class="tabular-mob-header">
 				<div class="header-secondary replace-header">
 					<ul class="nav pri-menu">
@@ -421,6 +421,6 @@
 			</div>
 
 		</div>
-		<pagination-controls (pageChange)="pagChanged($event)" autoHide="true"></pagination-controls>
+		<pagination-controls (pageChange)="pageChanged($event)" autoHide="true"></pagination-controls>
 	</div>
 </div>
