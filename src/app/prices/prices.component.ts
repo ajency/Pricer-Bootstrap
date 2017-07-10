@@ -13,9 +13,9 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 export class PricesComponent implements OnInit {
 
-	private priceListLoading: boolean = true;
-	private productList: any = [];
-	private paginationConfig: any = {
+	public priceListLoading: boolean = true;
+	public productList: any = [];
+	public paginationConfig: any = {
 	  itemsPerPage: 0,
 	  currentPage: 0,
 	  totalItems: 0
@@ -30,7 +30,7 @@ export class PricesComponent implements OnInit {
 
 	private filters: any;
 
-	private dummyProducts = [];
+	public dummyProducts = [];
 
   constructor(private _pricesservice: PricesServiceService, private sanitizer:DomSanitizer) {
   	for(let x = 0; x < this.defaultFilters.limit; x++){
